@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=13 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
-[ext_resource type="Script" path="res://Escenas/world.gd" id="1_o5y4q"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
 [ext_resource type="Texture2D" uid="uid://bi6ikkhei3aa2" path="res://Sprites/SPRITES MAP/tilesStuff.png" id="3_bc57v"]
 [ext_resource type="Texture2D" uid="uid://j2c0idnbb288" path="res://Sprites/SPRITES MAP/TilesStuffByJoram.png" id="4_bsiuu"]
@@ -1577,7 +1576,6 @@ sources/4 = SubResource("TileSetAtlasSource_aiwxa")
 
 [node name="World" type="Node2D"]
 position = Vector2(-2, -4)
-script = ExtResource("1_o5y4q")
 
 [node name="Player" parent="." instance=ExtResource("1_20eoy")]
 light_mask = 7

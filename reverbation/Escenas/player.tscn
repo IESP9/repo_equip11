@@ -1,7 +1,7 @@
 [gd_scene load_steps=73 format=3 uid="uid://cbwejrrj2cigf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_4rwuy"]
-[ext_resource type="Texture2D" uid="uid://dan3wdwmkdf1d" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="2_01pky"]
+[ext_resource type="Texture2D" uid="uid://dtt8phx4i4jru" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="2_01pky"]
 [ext_resource type="Texture2D" uid="uid://rkt5lnfou10j" path="res://Sprites/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_1xi7p"]
 [ext_resource type="Texture2D" uid="uid://cups1mr31ojeo" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full_prueba_iker.png" id="4_doua7"]
 
@@ -334,7 +334,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back_walk",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [],
 "loop": true,
@@ -459,7 +459,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"front_walk",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [],
 "loop": true,
@@ -554,7 +554,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"side_walk",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vcdw4"]
@@ -562,14 +562,14 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(589, 287)
-scale = Vector2(0.280002, 0.280002)
+scale = Vector2(0.7, 0.7)
 collision_layer = 3
 script = ExtResource("1_4rwuy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6.32, 6.32)
 sprite_frames = SubResource("SpriteFrames_w0381")
-animation = &"side_walk"
+animation = &"back_walk"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
