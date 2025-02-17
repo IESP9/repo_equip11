@@ -1,9 +1,9 @@
 [gd_scene load_steps=73 format=3 uid="uid://cbwejrrj2cigf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_4rwuy"]
-[ext_resource type="Texture2D" uid="uid://dtt8phx4i4jru" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="2_01pky"]
+[ext_resource type="Texture2D" uid="uid://3hoqdjl40mhb" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full.png" id="2_01pky"]
 [ext_resource type="Texture2D" uid="uid://rkt5lnfou10j" path="res://Sprites/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_1xi7p"]
-[ext_resource type="Texture2D" uid="uid://cups1mr31ojeo" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full_prueba_iker.png" id="4_doua7"]
+[ext_resource type="Texture2D" uid="uid://pwa1gdve3q6u" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full_prueba_iker.png" id="4_doua7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7p6tc"]
 atlas = ExtResource("2_01pky")
