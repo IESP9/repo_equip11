@@ -562,14 +562,15 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(589, 287)
+scale = Vector2(0.280002, 0.280002)
+collision_layer = 3
 script = ExtResource("1_4rwuy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6.32, 6.32)
 sprite_frames = SubResource("SpriteFrames_w0381")
-animation = &"side_idle"
+animation = &"side_walk"
 autoplay = "front_idle"
-frame_progress = 0.375936
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
