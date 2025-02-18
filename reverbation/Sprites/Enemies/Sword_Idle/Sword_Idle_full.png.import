@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr3upctyimsgi"
-path="res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"
+uid="uid://umiqwjvexnsq"
+path="res://.godot/imported/Sword_Idle_full.png-862ee03ecdd0cc625bae04c7fd4e79ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gui/KEYS.png"
-dest_files=["res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"]
+source_file="res://Sprites/Enemies/Sword_Idle/Sword_Idle_full.png"
+dest_files=["res://.godot/imported/Sword_Idle_full.png-862ee03ecdd0cc625bae04c7fd4e79ac.ctex"]
 
 [params]
 

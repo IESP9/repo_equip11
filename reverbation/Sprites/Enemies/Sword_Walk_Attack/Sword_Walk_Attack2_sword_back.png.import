@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr3upctyimsgi"
-path="res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"
+uid="uid://drcfp3kolb0il"
+path="res://.godot/imported/Sword_Walk_Attack2_sword_back.png-709d57639af58870539cd026a33a02f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gui/KEYS.png"
-dest_files=["res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"]
+source_file="res://Sprites/Enemies/Sword_Walk_Attack/Sword_Walk_Attack2_sword_back.png"
+dest_files=["res://.godot/imported/Sword_Walk_Attack2_sword_back.png-709d57639af58870539cd026a33a02f1.ctex"]
 
 [params]
 

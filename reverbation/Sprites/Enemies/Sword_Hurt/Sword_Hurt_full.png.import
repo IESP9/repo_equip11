@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr3upctyimsgi"
-path="res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"
+uid="uid://dkcr623w6ajfi"
+path="res://.godot/imported/Sword_Hurt_full.png-b0991590410fb6ba93146da1f302869e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gui/KEYS.png"
-dest_files=["res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"]
+source_file="res://Sprites/Enemies/Sword_Hurt/Sword_Hurt_full.png"
+dest_files=["res://.godot/imported/Sword_Hurt_full.png-b0991590410fb6ba93146da1f302869e.ctex"]
 
 [params]
 

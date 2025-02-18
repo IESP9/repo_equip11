@@ -263,15 +263,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlbis"]
-radius = 132.095
+radius = 437.005
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5bd3q"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx508"]
+radius = 15.4351
+height = 59.4413
 
 [node name="Monkey" type="CharacterBody2D"]
 script = ExtResource("1_va2rq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xqe7h")
 animation = &"Walk_back"
 autoplay = "Idle_front"
@@ -284,9 +286,9 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_vlbis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-1, 29)
 scale = Vector2(0.647876, 0.538346)
-shape = SubResource("CircleShape2D_5bd3q")
+shape = SubResource("CapsuleShape2D_qx508")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

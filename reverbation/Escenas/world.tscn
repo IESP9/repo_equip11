@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=14 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://j2c0idnbb288" path="res://Sprites/SPRITES MAP/TilesStuffByJoram.png" id="4_bsiuu"]
 [ext_resource type="Texture2D" uid="uid://chjjpuq0p54i8" path="res://Sprites/SPRITES MAP/tilesWalls.png" id="5_2ew7y"]
 [ext_resource type="Texture2D" uid="uid://bu8v332tax26g" path="res://Sprites/SPRITES MAP/tilesWallsColoredByJoram.png" id="6_yxtox"]
+[ext_resource type="PackedScene" uid="uid://fbdd5723xmpo" path="res://Escenas/monkey.tscn" id="7_e35j0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j175n"]
 texture = ExtResource("2_fk7i3")
@@ -1607,3 +1608,6 @@ layer_0/tile_data = PackedInt32Array(589826, 589824, 1342177291, 655362, 655360,
 use_parent_material = true
 tile_map_data = PackedByteArray("AAABAAUABAAAAAAAAAABAAYABAAAAAEAAAABAAcABAAAAAEAAAABAAgABAAAAAEAAAABAAkABAAAAAEAAAABAAoABAAAAAEAAAABAAsABAAAAAEAAAABAAwABAAAAAEAAAABAA0ABAAAAAEAAAABAA4ABAAAAAEAAAABAA8ABAAAAAEAAAABABAABAAAAAEAAAABABEABAAAAAEAAAABABIABAAAAAEAAAABABMABAAAAAEAAAABABQABAAAAAEAAAABABUABAAAAAEAAAABABYABAAAAAEAAAABABcABAAEAAAAADACABcABAAEAAEAAGA=")
 tile_set = SubResource("TileSet_6r5ut")
+
+[node name="Monkey" parent="." instance=ExtResource("7_e35j0")]
+position = Vector2(1354, 247)

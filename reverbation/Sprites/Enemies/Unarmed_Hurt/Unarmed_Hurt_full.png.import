@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr3upctyimsgi"
-path="res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"
+uid="uid://c21w22yv4vn33"
+path="res://.godot/imported/Unarmed_Hurt_full.png-820b5c74b8a17159a0dc1355d3ed93e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gui/KEYS.png"
-dest_files=["res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"]
+source_file="res://Sprites/Enemies/Unarmed_Hurt/Unarmed_Hurt_full.png"
+dest_files=["res://.godot/imported/Unarmed_Hurt_full.png-820b5c74b8a17159a0dc1355d3ed93e3.ctex"]
 
 [params]
 

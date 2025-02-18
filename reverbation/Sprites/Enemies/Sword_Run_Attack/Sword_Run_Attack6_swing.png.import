@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr3upctyimsgi"
-path="res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"
+uid="uid://cofa4h7elh035"
+path="res://.godot/imported/Sword_Run_Attack6_swing.png-b04fe0224e18f4969302b7b29b7c48e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gui/KEYS.png"
-dest_files=["res://.godot/imported/KEYS.png-8b5a6b8673cc7fc984046c0d9a222012.ctex"]
+source_file="res://Sprites/Enemies/Sword_Run_Attack/Sword_Run_Attack6_swing.png"
+dest_files=["res://.godot/imported/Sword_Run_Attack6_swing.png-b04fe0224e18f4969302b7b29b7c48e4.ctex"]
 
 [params]
 
