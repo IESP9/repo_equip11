@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=14 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
+[ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="2_6vshe"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
 [ext_resource type="Texture2D" uid="uid://bi6ikkhei3aa2" path="res://Sprites/SPRITES MAP/tilesStuff.png" id="3_bc57v"]
 [ext_resource type="Texture2D" uid="uid://j2c0idnbb288" path="res://Sprites/SPRITES MAP/TilesStuffByJoram.png" id="4_bsiuu"]
@@ -1588,9 +1589,16 @@ auto_translate_mode = 1
 position = Vector2(-14.2857, 9.99991)
 scale = Vector2(1.42857, 1.42857)
 ignore_rotation = false
+zoom = Vector2(0.75, 0.75)
 limit_left = -20000006
 limit_top = -20000000
 limit_smoothed = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(-4.28575, 4.28575)
+scale = Vector2(1.17662, 1.17662)
+range_item_cull_mask = 3
+texture = ExtResource("2_6vshe")
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -1607,3 +1615,6 @@ layer_0/tile_data = PackedInt32Array(589826, 589824, 1342177291, 655362, 655360,
 use_parent_material = true
 tile_map_data = PackedByteArray("AAABAAUABAAAAAAAAAABAAYABAAAAAEAAAABAAcABAAAAAEAAAABAAgABAAAAAEAAAABAAkABAAAAAEAAAABAAoABAAAAAEAAAABAAsABAAAAAEAAAABAAwABAAAAAEAAAABAA0ABAAAAAEAAAABAA4ABAAAAAEAAAABAA8ABAAAAAEAAAABABAABAAAAAEAAAABABEABAAAAAEAAAABABIABAAAAAEAAAABABMABAAAAAEAAAABABQABAAAAAEAAAABABUABAAAAAEAAAABABYABAAAAAEAAAABABcABAAEAAAAADACABcABAAEAAEAAGA=")
 tile_set = SubResource("TileSet_6r5ut")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
