@@ -558,8 +558,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15o0j"]
-radius = 12.8572
-height = 42.8571
+radius = 22.8572
+height = 45.7144
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(589, 287)
@@ -574,7 +574,7 @@ animation = &"back_walk"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.85714, 47.1428)
+position = Vector2(-2.85714, 51.4286)
 shape = SubResource("CapsuleShape2D_15o0j")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
