@@ -334,7 +334,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back_walk",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [],
 "loop": true,
@@ -459,7 +459,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"front_walk",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [],
 "loop": true,
@@ -554,7 +554,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"side_walk",
-"speed": 7.0
+"speed": 6.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15o0j"]
@@ -570,7 +570,7 @@ script = ExtResource("1_4rwuy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6.32, 6.32)
 sprite_frames = SubResource("SpriteFrames_w0381")
-animation = &"back_walk"
+animation = &"front_walk"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

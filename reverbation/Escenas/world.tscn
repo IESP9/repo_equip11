@@ -370,7 +370,6 @@ light_mask = 7
 visibility_layer = 1023
 position = Vector2(10, 5.00001)
 platform_floor_layers = 1
-speed = 220
 
 [node name="Camera" type="Camera2D" parent="Player"]
 auto_translate_mode = 1
