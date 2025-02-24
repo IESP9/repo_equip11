@@ -562,7 +562,7 @@ radius = 22.8572
 height = 45.7144
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(589, 287)
+position = Vector2(590, 287)
 scale = Vector2(0.7, 0.7)
 collision_layer = 3
 script = ExtResource("1_4rwuy")

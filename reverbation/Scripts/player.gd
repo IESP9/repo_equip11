@@ -1,11 +1,55 @@
 extends CharacterBody2D
 
-const speed = 220
+@export var speed = 220
 var current_direction = "none"
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
+func get_input():
+	var imput_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
+	velocity = imput_direction * speed
+
+	
+	if imput_direction.x > 0:
+		current_direction = "derecha"
+	elif imput_direction.x < 0:
+		current_direction = "izquierda"
+	elif imput_direction.y > 0:
+		current_direction = "abajo"
+	elif imput_direction.y < 0:
+		current_direction = "arriba"
+	
+	
+	if imput_direction == Vector2.ZERO:
+		current_direction = current_direction 
+	
+	
+	var is_moving = 1 if imput_direction.length() > 0 else 0
+	play_animation(is_moving)
+
+func play_animation(movement):
+	var animation = $AnimatedSprite2D
+	
+	if current_direction == "derecha":
+		animation.flip_h = true
+		animation.play("side_walk" if movement == 1 else "side_idle")
+	elif current_direction == "izquierda":
+		animation.flip_h = false
+		animation.play("side_walk" if movement == 1 else "side_idle")
+	elif current_direction == "abajo":
+		animation.flip_h = false
+		animation.play("front_walk" if movement == 1 else "front_idle")
+	elif current_direction == "arriba":
+		animation.flip_h = false
+		animation.play("back_walk" if movement == 1 else "back_idle")
+
+
+func _physics_process(delta):
+	get_input()
+	move_and_slide()
+
+"""
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 
@@ -36,32 +80,33 @@ func player_movement(delta):
 		velocity.x = 0
 
 	move_and_slide()
-
+	
 func play_animation(movement):
 	var dir = current_direction
 	var animation = $AnimatedSprite2D
 	
-	if dir == "right":
+	if dir == "derecha":
 		animation.flip_h = true
 		if movement == 1:
 			animation.play("side_walk")
 		elif movement == 0:
 			animation.play("side_idle")
-	if dir == "left":
+	if dir == "izquierda":
 		animation.flip_h = false
 		if movement == 1:
 			animation.play("side_walk")
 		elif movement == 0:
 			animation.play("side_idle")
-	if dir == "down":
+	if dir == "abajo":
 		animation.flip_h = false
 		if movement == 1:
 			animation.play("front_walk")
 		elif movement == 0:
 			animation.play("front_idle")
-	if dir == "up":
+	if dir == "arriba":
 		animation.flip_h = false
 		if movement == 1:
 			animation.play("back_walk")
 		elif movement == 0:
 			animation.play("back_idle")
+"""
