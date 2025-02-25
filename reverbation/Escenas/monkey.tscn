@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://fbdd5723xmpo"]
+[gd_scene load_steps=32 format=3 uid="uid://fbdd5723xmpo"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_va2rq"]
 [ext_resource type="Texture2D" uid="uid://bwbqrbfrin35w" path="res://Sprites/PNG/Sword_Walk/Sword_Walk_full.png" id="3_ra5sh"]
 [ext_resource type="Texture2D" uid="uid://umiqwjvexnsq" path="res://Sprites/Enemies/Sword_Idle/Sword_Idle_full.png" id="4_mso35"]
+[ext_resource type="Texture2D" uid="uid://qs53tvylagv" path="res://Sprites/Enemies/MONO/Sword_Walk_full.png" id="4_p2ci6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qlcl"]
 atlas = ExtResource("4_mso35")
@@ -52,28 +53,28 @@ region = Rect2(256, 192, 64, 64)
 atlas = ExtResource("3_ra5sh")
 region = Rect2(320, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmnif"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xhaq"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lv53e"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj2i4"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pqlh5"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qub55"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jgsoc"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3jf4"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnyfo"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5bhi"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fa8g8"]
-atlas = ExtResource("4_mso35")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nberq"]
+atlas = ExtResource("4_p2ci6")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3isw"]
@@ -186,23 +187,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_wmnif")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xhaq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lv53e")
+"texture": SubResource("AtlasTexture_fj2i4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pqlh5")
+"texture": SubResource("AtlasTexture_qub55")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jgsoc")
+"texture": SubResource("AtlasTexture_a3jf4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jnyfo")
+"texture": SubResource("AtlasTexture_p5bhi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fa8g8")
+"texture": SubResource("AtlasTexture_nberq")
 }],
 "loop": true,
 "name": &"Walk_front",
@@ -245,8 +246,8 @@ script = ExtResource("1_va2rq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xqe7h")
-animation = &"Idle_front"
-autoplay = "Idle_front"
+animation = &"Walk_front"
+autoplay = "Walk_front"
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2

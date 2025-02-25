@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=10 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
 [ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="2_6vshe"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
+[ext_resource type="PackedScene" uid="uid://fbdd5723xmpo" path="res://Escenas/monkey.tscn" id="5_paeao"]
 [ext_resource type="Texture2D" uid="uid://bu8v332tax26g" path="res://Sprites/SPRITES MAP/tilesWallsColoredByJoram.png" id="6_yxtox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qc2ag"]
@@ -390,3 +391,6 @@ texture = ExtResource("2_6vshe")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 3
 color = Color(0, 0, 0, 1)
+
+[node name="Monkey" parent="." instance=ExtResource("5_paeao")]
+position = Vector2(586, -68)
