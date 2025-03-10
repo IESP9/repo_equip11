@@ -240,12 +240,13 @@ radius = 15.4351
 height = 59.4413
 
 [node name="Monkey" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_va2rq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xqe7h")
-animation = &"Walk_side"
+animation = &"Idle_front"
 autoplay = "Walk_side"
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -255,7 +256,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_vlbis")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 29)
 scale = Vector2(0.647876, 0.538346)
 shape = SubResource("CapsuleShape2D_qx508")

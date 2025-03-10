@@ -631,6 +631,7 @@ radius = 22.8572
 height = 45.7144
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(590, 287)
 scale = Vector2(0.7, 0.7)
 collision_layer = 3
@@ -639,7 +640,7 @@ script = ExtResource("1_4rwuy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6.32, 6.32)
 sprite_frames = SubResource("SpriteFrames_w0381")
-animation = &"back_run"
+animation = &"side_attack"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

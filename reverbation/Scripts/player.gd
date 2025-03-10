@@ -6,7 +6,7 @@ var current_direction = "none"
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
-
+	self.y_sort_enabled = true  # Habilita YSort
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	
@@ -64,6 +64,6 @@ func play_animation(movement, is_sprinting):
 		else:
 			animation.play("back_walk" if movement == 1 else "back_idle")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
