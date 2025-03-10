@@ -15,6 +15,10 @@ run/main_scene="res://Escenas/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://pixel art murcielago.png"
 
+[gui]
+
+theme/custom_font="res://Fuente/Stacked pixel.ttf"
+
 [input]
 
 ui_left={
