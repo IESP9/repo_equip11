@@ -399,7 +399,6 @@ texture = ExtResource("2_6vshe")
 
 [node name="Monkey" parent="Node2D" instance=ExtResource("5_paeao")]
 position = Vector2(195, 88)
-scale = Vector2(1, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 3

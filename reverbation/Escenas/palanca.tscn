@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://crg2t4rwfqm1u"]
+
+[ext_resource type="Texture2D" uid="uid://5kyydheis307" path="res://Sprites/Interactive/New Piskel.png" id="1_5qaej"]
+[ext_resource type="Script" path="res://Escenas/palanca.gd" id="1_pg5hw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2yn"]
+size = Vector2(17.3071, 10.8733)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aqx0"]
+atlas = ExtResource("1_5qaej")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn4eh"]
+atlas = ExtResource("1_5qaej")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8by5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aqx0")
+}],
+"loop": true,
+"name": &"desactivada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn4eh")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Palanca" type="StaticBody2D"]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+script = ExtResource("1_pg5hw")
+
+[node name="CollisionShape2DD" type="CollisionShape2D" parent="."]
+position = Vector2(-1.65357, 7.43667)
+shape = SubResource("RectangleShape2D_dr2yn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_8by5s")
+animation = &"desactivada"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+scale = Vector2(1.81818, 1.81818)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(0, 4.4)
+shape = SubResource("RectangleShape2D_dr2yn")
