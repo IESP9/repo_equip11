@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6x3lqimijlr2"]
+[gd_scene load_steps=8 format=3 uid="uid://c6x3lqimijlr2"]
 
-[ext_resource type="StyleBox" uid="uid://corjvmmgqbk0j" path="res://Styles/Button_Sobre.tres" id="1_8oc7u"]
-[ext_resource type="Texture2D" uid="uid://hmrygroh2u5p" path="res://Sprites/Gui/GUI.png" id="1_n44ab"]
+[ext_resource type="StyleBox" uid="uid://hwejo0a1xhm3" path="res://Styles/Button_sobre.tres" id="1_vxhp0"]
+[ext_resource type="StyleBox" uid="uid://cu8pt5b8nlmox" path="res://Styles/Button_pulsat.tres" id="2_cvgxm"]
 [ext_resource type="StyleBox" uid="uid://dbhs4t0dai3a8" path="res://Styles/Button_normal.tres" id="2_uisq5"]
+[ext_resource type="Texture2D" uid="uid://bi3hfjgkfmg7n" path="res://Sprites/fondo.jpg" id="3_dgq7b"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="4_6xuur"]
 
 [sub_resource type="Theme" id="Theme_i5wye"]
-Button/font_sizes/font_size = 28
-Button/styles/hover = ExtResource("1_8oc7u")
+Button/font_sizes/font_size = 34
+Button/styles/hover = ExtResource("1_vxhp0")
+Button/styles/hover_pressed = ExtResource("2_cvgxm")
 Button/styles/normal = ExtResource("2_uisq5")
+Button/styles/pressed = ExtResource("2_cvgxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igoob"]
+texture = ExtResource("3_dgq7b")
+modulate_color = Color(0.720467, 0.720468, 0.720467, 1)
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -17,39 +25,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i5wye")
+script = ExtResource("4_6xuur")
 
-[node name="Menu" type="NinePatchRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 657.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_igoob")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -246.5
-offset_top = -246.5
-offset_right = 246.5
-offset_bottom = 246.5
+offset_left = -146.0
+offset_top = -67.0
+offset_right = 146.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_n44ab")
-region_rect = Rect2(2.05238, 33.7386, 44.0225, 44.3662)
+theme_override_constants/separation = 9
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
-layout_mode = 0
-offset_left = 89.5
-offset_top = 80.5
-offset_right = 209.5
-offset_bottom = 190.5
-scale = Vector2(2.56613, 3.07766)
-
-[node name="Play" type="Button" parent="Menu/VBoxContainer"]
+[node name="Start Game" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Play"
+size_flags_vertical = 3
+text = "Start Game"
+icon_alignment = 1
 
-[node name="Settings" type="Button" parent="Menu/VBoxContainer"]
+[node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Settings"
+icon_alignment = 1
 
-[node name="Quit" type="Button" parent="Menu/VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+size_flags_vertical = 3
+text = "Exit"
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = -203.0
+offset_right = 236.5
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "REVERBATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
