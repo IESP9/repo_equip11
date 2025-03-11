@@ -4,7 +4,6 @@
 [ext_resource type="StyleBox" uid="uid://cu8pt5b8nlmox" path="res://Styles/Button_pulsat.tres" id="2_cvgxm"]
 [ext_resource type="StyleBox" uid="uid://dbhs4t0dai3a8" path="res://Styles/Button_normal.tres" id="2_uisq5"]
 [ext_resource type="Texture2D" uid="uid://bi3hfjgkfmg7n" path="res://Sprites/fondo.jpg" id="3_dgq7b"]
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="4_6xuur"]
 
 [sub_resource type="Theme" id="Theme_i5wye"]
 Button/font_sizes/font_size = 34
@@ -12,6 +11,32 @@ Button/styles/hover = ExtResource("1_vxhp0")
 Button/styles/hover_pressed = ExtResource("2_cvgxm")
 Button/styles/normal = ExtResource("2_uisq5")
 Button/styles/pressed = ExtResource("2_cvgxm")
+
+[sub_resource type="GDScript" id="GDScript_43asx"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_start_game_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Escenas/world.tscn\")
+
+
+func _on_settings_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igoob"]
 texture = ExtResource("3_dgq7b")
@@ -25,7 +50,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i5wye")
-script = ExtResource("4_6xuur")
+script = SubResource("GDScript_43asx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
