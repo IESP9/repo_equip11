@@ -52,6 +52,8 @@ grow_vertical = 2
 theme = SubResource("Theme_i5wye")
 script = SubResource("GDScript_43asx")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1935.0

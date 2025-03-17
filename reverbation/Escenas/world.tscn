@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=11 format=4 uid="uid://ovlv5ov3630a"]
 
+[ext_resource type="AudioStream" uid="uid://c7rtd2c7m6gv0" path="res://Musica/Banda Sonora Reverbation.mp3" id="1_3jfog"]
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
 [ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="2_6vshe"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
@@ -353,6 +354,12 @@ sources/0 = SubResource("TileSetAtlasSource_1kkp5")
 [node name="World" type="Node2D"]
 position = Vector2(-2, -4)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3jfog")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
 [node name="OBJETOS" type="TileMapLayer" parent="."]
 light_mask = 259
 visibility_layer = 259
@@ -384,7 +391,7 @@ auto_translate_mode = 1
 position = Vector2(-14.2857, 9.99991)
 scale = Vector2(1.42857, 1.42857)
 ignore_rotation = false
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(1.25, 1.25)
 limit_left = -20000006
 limit_top = -20000000
 limit_smoothed = true
