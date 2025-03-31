@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=12 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="AudioStream" uid="uid://c7rtd2c7m6gv0" path="res://Musica/Banda Sonora Reverbation.mp3" id="1_3jfog"]
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
 [ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="2_6vshe"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
 [ext_resource type="PackedScene" uid="uid://fbdd5723xmpo" path="res://Escenas/monkey.tscn" id="5_paeao"]
+[ext_resource type="PackedScene" uid="uid://crg2t4rwfqm1u" path="res://Escenas/palanca.tscn" id="6_7i020"]
 [ext_resource type="Texture2D" uid="uid://bu8v332tax26g" path="res://Sprites/SPRITES MAP/tilesWallsColoredByJoram.png" id="6_yxtox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qc2ag"]
@@ -382,7 +383,7 @@ tile_set = SubResource("TileSet_x6rad")
 [node name="Profundidades" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Player" parent="Profundidades" instance=ExtResource("1_20eoy")]
+[node name="Player" parent="Profundidades" groups=["player"] instance=ExtResource("1_20eoy")]
 position = Vector2(10, 5.00001)
 platform_floor_layers = 1
 
@@ -404,14 +405,12 @@ scale = Vector2(1.17662, 1.17662)
 range_item_cull_mask = 3
 texture = ExtResource("2_6vshe")
 
+[node name="Palanca" parent="Profundidades" instance=ExtResource("6_7i020")]
+position = Vector2(-179, -41)
+scale = Vector2(3, 3)
+
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
 position = Vector2(195, 88)
-
-[node name="Monkey2" parent="Profundidades" instance=ExtResource("5_paeao")]
-position = Vector2(-301, -146)
-
-[node name="Monkey3" parent="Profundidades" instance=ExtResource("5_paeao")]
-position = Vector2(-321, 224)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 3

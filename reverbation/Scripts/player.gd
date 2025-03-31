@@ -3,10 +3,13 @@ extends CharacterBody2D
 @export var speed = 220
 @export var sprint_speed = 350  # Velocidad al correr
 var current_direction = "none"
+@onready var player: CharacterBody2D = $"."
+
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 	self.y_sort_enabled = true  # Habilita YSort
+	player.is_in_group("player")
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	

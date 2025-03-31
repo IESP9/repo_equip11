@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_dr2yn")
 show_behind_parent = true
 position = Vector2(16, -3)
 sprite_frames = SubResource("SpriteFrames_8by5s")
-animation = &"desactivada"
+animation = &"on"
 
 [node name="Area2D" type="Area2D" parent="palanca_sprite"]
 scale = Vector2(3, 3)
