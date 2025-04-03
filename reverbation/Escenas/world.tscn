@@ -412,7 +412,7 @@ texture = ExtResource("2_6vshe")
 
 [node name="Palanca" parent="Profundidades" instance=ExtResource("6_7i020")]
 position = Vector2(-179, -41)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
 position = Vector2(195, 88)
