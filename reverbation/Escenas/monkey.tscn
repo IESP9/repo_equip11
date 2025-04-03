@@ -261,5 +261,8 @@ position = Vector2(-1, 29)
 scale = Vector2(0.647876, 0.538346)
 shape = SubResource("CapsuleShape2D_qx508")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

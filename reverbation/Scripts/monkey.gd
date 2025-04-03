@@ -1,3 +1,37 @@
+
+#extends CharacterBody2D
+
+#var speed = 100
+#var player_chase = false
+#var player = null
+#var current_direction = "none"
+
+#unc _ready():
+#	self.y_sort_enabled = true  # Habilita YSort
+#
+#func _physics_process(delta: float) -> void:
+#	if player_chase and player:
+#		var direction = (player.position - position).normalized()
+#		var distance_to_player = position.distance_to(player.position)
+#
+#		# Umbral de distancia mínima antes de detenerse
+#		var stop_distance = 60  
+
+#		if distance_to_player > stop_distance:
+#			position += direction * speed * delta
+#			play_animation(1)  # En movimiento
+#		else:
+#			play_animation(0)  # En reposo
+#
+#		# Determinar dirección para la animación
+#		if abs(direction.x) > abs(direction.y):  
+#			current_direction = "derecha" if direction.x > 0 else "izquierda"
+#		else:  
+#			current_direction = "abajo" if direction.y > 0 else "arriba"
+#	else:
+#		play_animation(0)  # En reposo
+
+
 extends CharacterBody2D
 
 var speed = 100
@@ -13,13 +47,19 @@ func _physics_process(delta: float) -> void:
 		var direction = (player.position - position).normalized()
 		var distance_to_player = position.distance_to(player.position)
 
+		# Agregar un pequeño desplazamiento aleatorio para evitar la fusión
+		direction += Vector2(randf_range(-0.1, 0.1), randf_range(-0.1, 0.1))
+		direction = direction.normalized()  # Normalizar nuevamente
+
 		# Umbral de distancia mínima antes de detenerse
 		var stop_distance = 60  
 
 		if distance_to_player > stop_distance:
-			position += direction * speed * delta
+			velocity = direction * speed
+			move_and_slide()  # Usa move_and_slide en lugar de modificar position directamente
 			play_animation(1)  # En movimiento
 		else:
+			velocity = Vector2.ZERO
 			play_animation(0)  # En reposo
 
 		# Determinar dirección para la animación
@@ -28,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		else:  
 			current_direction = "abajo" if direction.y > 0 else "arriba"
 	else:
+		velocity = Vector2.ZERO
 		play_animation(0)  # En reposo
 
 func play_animation(movement):
