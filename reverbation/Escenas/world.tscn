@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="AudioStream" uid="uid://c7rtd2c7m6gv0" path="res://Musica/Banda Sonora Reverbation.mp3" id="1_3jfog"]
-[ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
+[ext_resource type="PackedScene" uid="uid://crg2t4rwfqm1u" path="res://Escenas/palanca.tscn" id="1_20eoy"]
 [ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="2_6vshe"]
 [ext_resource type="Texture2D" uid="uid://o7k3u5smdneg" path="res://Sprites/SPRITES MAP/tilesFloorColoredByJoram.png" id="2_fk7i3"]
 [ext_resource type="PackedScene" uid="uid://fbdd5723xmpo" path="res://Escenas/monkey.tscn" id="5_paeao"]
