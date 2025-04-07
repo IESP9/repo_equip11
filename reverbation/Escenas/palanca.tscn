@@ -83,14 +83,14 @@ shape = SubResource("RectangleShape2D_dr2yn")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -44.0
-offset_top = -37.5
+offset_top = -42.5
 offset_right = 67.0
-offset_bottom = -25.5
+offset_bottom = -30.5
 theme_override_font_sizes/font_size = 14
 text = "Presiona la tecla"
 
 [node name="Texto" type="AnimatedSprite2D" parent="."]
-position = Vector2(80, -31.5)
+position = Vector2(80, -36.5)
 sprite_frames = SubResource("SpriteFrames_ymo1j")
 autoplay = "default"
 frame_progress = 0.196929
