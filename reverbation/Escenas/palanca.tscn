@@ -57,3 +57,20 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="palanca_sprite/Area2D"]
 position = Vector2(0.333333, 2.33333)
 shape = SubResource("RectangleShape2D_dr2yn")
+<<<<<<< HEAD
+=======
+
+[node name="Label" type="Label" parent="."]
+offset_left = -44.0
+offset_top = -42.5
+offset_right = 67.0
+offset_bottom = -30.5
+theme_override_font_sizes/font_size = 14
+text = "Presiona la tecla"
+
+[node name="Texto" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, -36.5)
+sprite_frames = SubResource("SpriteFrames_ymo1j")
+autoplay = "default"
+frame_progress = 0.196929
+>>>>>>> parent of 346a018 (dad)
