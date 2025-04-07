@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=13 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="AudioStream" uid="uid://c7rtd2c7m6gv0" path="res://Musica/Banda Sonora Reverbation.mp3" id="1_3jfog"]
 [ext_resource type="PackedScene" uid="uid://cbwejrrj2cigf" path="res://Escenas/player.tscn" id="1_20eoy"]
@@ -352,6 +352,11 @@ texture = ExtResource("2_fk7i3")
 [sub_resource type="TileSet" id="TileSet_x6rad"]
 sources/0 = SubResource("TileSetAtlasSource_1kkp5")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_10q1k"]
+vertices = PackedVector2Array(1105, 535.008, -545, 536.977, -545, -318.023, 1105, -322.961)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-555, -328, -555, 547, 1115, 545, 1115, -333)])
+
 [node name="World" type="Node2D"]
 position = Vector2(-2, -4)
 
@@ -412,6 +417,17 @@ scale = Vector2(3, 3)
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
 position = Vector2(195, 88)
 
+[node name="Monkey3" parent="Profundidades" instance=ExtResource("5_paeao")]
+position = Vector2(215, -96)
+
+[node name="Monkey2" parent="Profundidades" instance=ExtResource("5_paeao")]
+position = Vector2(-303, 176)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 light_mask = 3
 color = Color(0, 0, 0, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_10q1k")
