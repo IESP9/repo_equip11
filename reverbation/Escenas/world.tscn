@@ -363,7 +363,7 @@ position = Vector2(-2, -4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_3jfog")
-volume_db = -10.0
+volume_db = 12.486
 autoplay = true
 parameters/looping = true
 
