@@ -102,10 +102,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_v7bg7")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,14 +117,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_f3wty")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
+wait_time = 2.0
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
