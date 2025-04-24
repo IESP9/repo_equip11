@@ -29,5 +29,5 @@ func _on_timer_timeout():
 	$TextureRect2.visible = true
 	timer_2.start()
 
-func _on_timer_2_timeout() -> void:
+func _on_timer_2_timeout():
 	get_tree().change_scene_to_file("res://Escenas/world.tscn")
