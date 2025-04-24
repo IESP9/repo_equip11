@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6x3lqimijlr2"]
+[gd_scene load_steps=10 format=3 uid="uid://c6x3lqimijlr2"]
 
 [ext_resource type="StyleBox" uid="uid://hwejo0a1xhm3" path="res://Styles/Button_sobre.tres" id="1_vxhp0"]
 [ext_resource type="StyleBox" uid="uid://cu8pt5b8nlmox" path="res://Styles/Button_pulsat.tres" id="2_cvgxm"]
 [ext_resource type="StyleBox" uid="uid://dbhs4t0dai3a8" path="res://Styles/Button_normal.tres" id="2_uisq5"]
 [ext_resource type="Texture2D" uid="uid://bi3hfjgkfmg7n" path="res://Sprites/fondo.jpg" id="3_dgq7b"]
 [ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="4_4fy27"]
+[ext_resource type="Texture2D" uid="uid://c22y70uewi6yu" path="res://Sprites/Gui/1.png" id="6_v7bg7"]
+[ext_resource type="Texture2D" uid="uid://c82uh6lvuk7sr" path="res://Sprites/Gui/2.png" id="7_f3wty"]
 
 [sub_resource type="Theme" id="Theme_i5wye"]
 Button/font_sizes/font_size = 60
@@ -86,6 +88,47 @@ text = "REVERBATION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 33.0
+offset_right = -203.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v7bg7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = 33.0
+offset_right = -203.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_f3wty")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
