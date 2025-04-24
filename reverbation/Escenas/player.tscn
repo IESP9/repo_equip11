@@ -394,7 +394,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"back_attack",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [],
 "loop": true,
@@ -506,7 +506,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"front_attack",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [],
 "loop": true,
@@ -678,7 +678,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"side_attack",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [],
 "loop": true,
@@ -811,7 +811,7 @@ script = ExtResource("1_4rwuy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6.32, 6.32)
 sprite_frames = SubResource("SpriteFrames_w0381")
-animation = &"front_walk"
+animation = &"back_attack"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
