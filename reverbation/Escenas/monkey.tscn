@@ -436,7 +436,7 @@ script = ExtResource("1_va2rq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xqe7h")
-animation = &"Attack_side"
+animation = &"Death_back"
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2

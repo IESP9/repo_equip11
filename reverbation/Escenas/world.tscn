@@ -420,13 +420,15 @@ position = Vector2(-179, -41)
 scale = Vector2(4, 4)
 
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
-position = Vector2(195, 88)
+position = Vector2(504, 119)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 3
 color = Color(0, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(117, 47)
 navigation_polygon = SubResource("NavigationPolygon_10q1k")
 
 [node name="MENU" parent="." instance=ExtResource("1_d24c7")]
