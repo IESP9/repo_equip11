@@ -19,6 +19,7 @@ config/icon="res://pixel art murcielago.png"
 [autoload]
 
 palanca_global="*res://Scripts/palanca_global.gd"
+VidaGlobal="*res://Scripts/vida_global.gd"
 
 [display]
 

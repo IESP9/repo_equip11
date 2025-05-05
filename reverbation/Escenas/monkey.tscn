@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://fbdd5723xmpo"]
+[gd_scene load_steps=59 format=3 uid="uid://fbdd5723xmpo"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_va2rq"]
 [ext_resource type="Texture2D" uid="uid://c2fqc3a55ndqo" path="res://Sprites/Enemies/MONO/Sword_attack_full.png" id="2_8v283"]
@@ -429,6 +429,8 @@ radius = 100.404
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dsns"]
 radius = 40.1995
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_132er"]
+
 [node name="Monkey" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_va2rq")
@@ -457,7 +459,7 @@ avoidance_enabled = true
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="startAttack" type="CollisionShape2D" parent="Attack"]
-position = Vector2(1, -1)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_jcdb7")
 
 [node name="AttackArea" type="Area2D" parent="Attack"]
@@ -468,6 +470,15 @@ monitoring = false
 position = Vector2(46, 4)
 shape = SubResource("CircleShape2D_0dsns")
 
+[node name="BarraVida" type="TextureProgressBar" parent="."]
+offset_left = -56.0
+offset_top = -43.0
+offset_right = 56.0
+offset_bottom = -21.0
+value = 100.0
+texture_under = SubResource("CompressedTexture2D_132er")
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
+[connection signal="body_exited" from="Attack" to="." method="_on_attack_body_exited"]

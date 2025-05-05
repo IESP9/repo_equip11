@@ -408,6 +408,7 @@ limit_top = -20000000
 limit_smoothed = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Profundidades/Player"]
+visible = false
 light_mask = 514
 visibility_layer = 514
 position = Vector2(-14.2857, -1.4782e-05)
@@ -421,8 +422,10 @@ scale = Vector2(4, 4)
 
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
 position = Vector2(504, 119)
+max_health = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 light_mask = 3
 color = Color(0, 0, 0, 1)
 
@@ -432,3 +435,4 @@ position = Vector2(117, 47)
 navigation_polygon = SubResource("NavigationPolygon_10q1k")
 
 [node name="MENU" parent="." instance=ExtResource("1_d24c7")]
+visible = false
