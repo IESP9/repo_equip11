@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Juego - Página Oficial</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 5px #E93AEA;
+    }
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px #E93AEA;
+    }
+
+    header {
+      background-color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-shadow: 2px 2px 5px #E93AEA;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .game-image {
+      width: 50%;
+      border-radius: 10px;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      width: 50%;
+      text-shadow: 1px 1px 3px #E93AEA;
+    }
+
+    .texto {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer {
+      background-color: black;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>REVERBATION</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a href="como-jugar.html">Cómo Jugar</a>
+      <a href="descarga.html">Descarga</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="image-container">
+      <img src="img/logo.png" alt="Captura del juego" class="game-image">
+    </div>
+    <h2>OBJETIVO</h2>
+    <div class="texto">
+      <p class="description">
+        El objetivo del juego es conseguir escapar del laboratorio con vida después de haber avanzado por las diferentes salas y habitaciones del juego. No será tan fácil como suena ya que tu visibilidad está limitada y en estas salas deberás matar a los enemigos y ir abriendo puertas para avanzar por el mapa con ayuda de algunas notas.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 IKER | YURI | JORAM
+  </footer>
+</body>
+</html>
