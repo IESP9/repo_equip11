@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Pausa"):
 		toggle_pause()
 
@@ -13,10 +13,6 @@ func toggle_pause() -> void:
 	$VBoxContainer/Exit.visible = not $VBoxContainer/Exit.visible
 	$Label.visible = not $Label.visible
 
-
-
-func _on_settings_pressed() -> void:
-	pass # Replace with function body.
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
