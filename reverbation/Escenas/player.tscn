@@ -795,8 +795,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15o0j"]
-radius = 22.8572
-height = 45.7144
+radius = 21.4285
+height = 91.4286
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwbys"]
 radius = 61.0787
@@ -815,7 +815,7 @@ animation = &"back_attack"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.85714, 51.4286)
+position = Vector2(-1.42857, 17.1428)
 shape = SubResource("CapsuleShape2D_15o0j")
 
 [node name="AttackArea" type="Area2D" parent="."]

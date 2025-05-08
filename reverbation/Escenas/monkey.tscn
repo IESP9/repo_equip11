@@ -421,10 +421,10 @@ radius = 437.005
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx508"]
 radius = 15.4351
-height = 59.4413
+height = 89.162
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jcdb7"]
-radius = 100.404
+radius = 48.0937
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dsns"]
 radius = 40.1995
@@ -449,7 +449,7 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_vlbis")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 29)
+position = Vector2(-1, 9)
 scale = Vector2(0.647876, 0.538346)
 shape = SubResource("CapsuleShape2D_qx508")
 
@@ -459,7 +459,6 @@ avoidance_enabled = true
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="startAttack" type="CollisionShape2D" parent="Attack"]
-position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_jcdb7")
 
 [node name="AttackArea" type="Area2D" parent="Attack"]
