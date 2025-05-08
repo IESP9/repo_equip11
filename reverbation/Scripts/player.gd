@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 220
-@export var sprint_speed = 350  # Velocidad al correr
+@export var speed = 400
+@export var sprint_speed = 550  # Velocidad al correr
 var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
@@ -127,3 +127,4 @@ func _on_AttackArea_body_entered(body):
 		var knockback = (body.global_position - global_position).normalized() * 200
 		if body.has_method("apply_knockback"):
 			body.apply_knockback(knockback)
+			
