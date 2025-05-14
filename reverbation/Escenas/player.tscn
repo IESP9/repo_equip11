@@ -1,6 +1,6 @@
 [gd_scene load_steps=98 format=3 uid="uid://cbwejrrj2cigf"]
 
-[ext_resource type="Script" uid="uid://bq8b6ocld0i4w" path="res://Scripts/player.gd" id="1_4rwuy"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_4rwuy"]
 [ext_resource type="Texture2D" uid="uid://rkt5lnfou10j" path="res://Sprites/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_1xi7p"]
 [ext_resource type="Texture2D" uid="uid://pwa1gdve3q6u" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full_prueba_iker.png" id="4_doua7"]
 [ext_resource type="Texture2D" uid="uid://dow5w54ceydn5" path="res://Sprites/PNG/Sword_attack/Sword_attack_full.png" id="4_ur50y"]
@@ -795,8 +795,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15o0j"]
-radius = 22.8572
-height = 45.7144
+radius = 20.0
+height = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwbys"]
 radius = 61.0787
@@ -815,7 +815,7 @@ animation = &"side_attack"
 autoplay = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.85714, 51.4286)
+position = Vector2(2.6226e-06, 21.4286)
 shape = SubResource("CapsuleShape2D_15o0j")
 
 [node name="AttackArea" type="Area2D" parent="."]
