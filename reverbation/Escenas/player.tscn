@@ -1,6 +1,6 @@
 [gd_scene load_steps=98 format=3 uid="uid://cbwejrrj2cigf"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_4rwuy"]
+[ext_resource type="Script" uid="uid://bq8b6ocld0i4w" path="res://Scripts/player.gd" id="1_4rwuy"]
 [ext_resource type="Texture2D" uid="uid://rkt5lnfou10j" path="res://Sprites/PNG/Unarmed_Walk/Unarmed_Walk_full.png" id="2_1xi7p"]
 [ext_resource type="Texture2D" uid="uid://pwa1gdve3q6u" path="res://Sprites/PNG/Unarmed_Idle/Unarmed_Idle_full_prueba_iker.png" id="4_doua7"]
 [ext_resource type="Texture2D" uid="uid://dow5w54ceydn5" path="res://Sprites/PNG/Sword_attack/Sword_attack_full.png" id="4_ur50y"]

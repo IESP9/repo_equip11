@@ -1,6 +1,6 @@
 [gd_scene load_steps=59 format=3 uid="uid://fbdd5723xmpo"]
 
-[ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_va2rq"]
+[ext_resource type="Script" uid="uid://cvlgxrwuahoae" path="res://Scripts/monkey.gd" id="1_va2rq"]
 [ext_resource type="Texture2D" uid="uid://c2fqc3a55ndqo" path="res://Sprites/Enemies/MONO/Sword_attack_full.png" id="2_8v283"]
 [ext_resource type="Texture2D" uid="uid://umiqwjvexnsq" path="res://Sprites/Enemies/Sword_Idle/Sword_Idle_full.png" id="4_mso35"]
 [ext_resource type="Texture2D" uid="uid://qs53tvylagv" path="res://Sprites/Enemies/MONO/Sword_Walk_full.png" id="4_p2ci6"]
