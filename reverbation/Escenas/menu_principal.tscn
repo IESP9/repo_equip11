@@ -115,10 +115,8 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.001
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 0.001
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
