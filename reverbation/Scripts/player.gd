@@ -152,7 +152,7 @@ func take_damage(amount):
 
 func apply_knockback(knockback: Vector2) -> void:
 	knockback_vector = knockback.normalized()
-	knockback_strength = 150  # Fuerza del knockback para el jugador
+	knockback_strength = 200  # Fuerza del knockback para el jugador
 	print("Jugador recibió knockback!")
 
 # Conectar esta señal en el editor, o usar el formato correcto para la conexión automática

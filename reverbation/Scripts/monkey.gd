@@ -186,7 +186,7 @@ func apply_knockback(knockback: Vector2) -> void:
 # Función para que el enemigo dañe al jugador cuando lo golpea
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("player"):
-		body.take_damage(20)  # Daño que hace el enemigo al jugador
+		body.take_damage(10)  # Daño que hace el enemigo al jugador
 		var knockback = (body.global_position - global_position).normalized() * 200
 		if body.has_method("apply_knockback"):
 			body.apply_knockback(knockback)
