@@ -10,6 +10,9 @@ var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
 var attack_timer = 0.0
+var knockback_vector = Vector2.ZERO
+var knockback_strength = 0
+var knockback_recovery = 10  # Velocidad de recuperación del knockback
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -48,6 +51,10 @@ func get_input():
 	play_animation(is_moving, is_sprinting)
 
 func play_animation(movement, is_sprinting):
+	# No cambiar animación si está atacando o en knockback
+	if is_attacking or knockback_strength > 0:
+		return
+		
 	var animation = $AnimatedSprite2D
 	
 	if current_direction == "derecha":
@@ -76,6 +83,16 @@ func play_animation(movement, is_sprinting):
 			animation.play("back_walk" if movement == 1 else "back_idle")
 
 func _physics_process(delta):
+	# Procesar knockback
+	if knockback_strength > 0:
+		velocity = knockback_vector * knockback_strength
+		knockback_strength = max(0, knockback_strength - knockback_recovery)
+		
+		# Si aún estamos en knockback, aplicar movimiento y salir
+		if knockback_strength > 0:
+			move_and_slide()
+			return
+	
 	if is_attacking:
 		velocity = Vector2.ZERO
 	else:
@@ -104,10 +121,10 @@ func start_attack():
 			$AttackArea.global_position = global_position + Vector2(-100, 0)
 		"arriba":
 			$AnimatedSprite2D.play("back_attack")
-			$AttackArea.global_position = global_position + Vector2(-45, -30)
+			$AttackArea.global_position = global_position + Vector2(-45, -50)
 		"abajo":
 			$AnimatedSprite2D.play("front_attack")
-			$AttackArea.global_position = global_position + Vector2(-45, 40)
+			$AttackArea.global_position = global_position + Vector2(-45, 50)
 	
 	# Conectar la señal si no está conectada ya
 	if not $AnimatedSprite2D.animation_finished.is_connected(self._on_attack_animation_finished):
@@ -122,18 +139,27 @@ func _on_attack_animation_finished():
 		print("Animación de ataque terminada")
 
 func die():
+	print("Jugador ha muerto!")
 	queue_free()
 
 func take_damage(amount):
 	current_health -= amount
+	print("Jugador recibió " + str(amount) + " de daño. Salud: " + str(current_health))
+	
 	if current_health <= 0:
-		print("has muetro")
+		print("Jugador ha muerto")
 		die()
 
-func _on_AttackArea_body_entered(body):
+func apply_knockback(knockback: Vector2) -> void:
+	knockback_vector = knockback.normalized()
+	knockback_strength = 150  # Fuerza del knockback para el jugador
+	print("Jugador recibió knockback!")
+
+# Conectar esta señal en el editor, o usar el formato correcto para la conexión automática
+func _on_attack_area_body_entered(body):
 	if body.is_in_group("enemigos"):
+		print("Golpeando a un enemigo")
 		body.take_damage(20)  # Daño que hace el jugador
 		var knockback = (body.global_position - global_position).normalized() * 200
 		if body.has_method("apply_knockback"):
 			body.apply_knockback(knockback)
-			

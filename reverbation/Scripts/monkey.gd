@@ -18,6 +18,7 @@ func _ready():
 	$Attack/AttackArea.monitoring = false
 	self.y_sort_enabled = true  # Habilita YSort
 	add_to_group("enemigos")  # Añadir al grupo de enemigos
+	vida_actual = vida_max  # Inicializar vida
 
 func _physics_process(delta: float) -> void:
 	# Ataque cooldown
@@ -127,7 +128,7 @@ func start_attack(_body: Node2D) -> void:
 				print("ataque abajo")
 				$Attack/AttackArea.global_position = global_position + Vector2(-45, 40)
 	
-	# Conectar la señal de animación terminada si no está conectada
+		# Conectar la señal de animación terminada si no está conectada
 		if not animation.animation_finished.is_connected(self._on_attack_animation_finished):
 			animation.animation_finished.connect(self._on_attack_animation_finished)
 	elif player_in_attack_area == false and is_attacking == true:
@@ -152,7 +153,7 @@ func _on_attack_body_exited(body: Node2D) -> void:
 		player_in_attack_area = false
 		print("ha salido")
 		# Asegurarnos de que no esté atacando si el jugador sale del área
-			# No cancelamos el ataque actual, pero evitamos que inicie uno nuevo
+		# No cancelamos el ataque actual, pero evitamos que inicie uno nuevo
 
 func die():
 	queue_free()
@@ -172,7 +173,9 @@ func take_damage(amount):
 		die()
 
 func update_barra_vida():
-	barra_vida.value = clamp(barra_vida, 0, vida_max)
+	# Corregido: La barra se actualiza con el valor de vida_actual
+	barra_vida.value = clampf(vida_actual, 0, vida_max)
+
 func apply_knockback(knockback: Vector2) -> void:
 	knockback_vector = knockback.normalized()
 	knockback_strength = 200  # Fuerza del knockback
@@ -180,12 +183,10 @@ func apply_knockback(knockback: Vector2) -> void:
 	# Puedes añadir aquí lógica de daño o efectos visuales
 	print("Enemigo recibió knockback!")
 
-
-# Esta función estaba mal ubicada en tu código y parecía ser del jugador, no del enemigo
-# Si necesitas esta función en el enemigo, puedes descomentar y ajustar
-#func _on_AttackArea_body_entered(body):
-#	if body.is_in_group("player"):
-#		body.take_damage(20)  # Daño que hace el enemigo al jugador
-#		var knockback = (body.global_position - global_position).normalized() * 200
-#		if body.has_method("apply_knockback"):
-#			body.apply_knockback(knockback)
+# Función para que el enemigo dañe al jugador cuando lo golpea
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(20)  # Daño que hace el enemigo al jugador
+		var knockback = (body.global_position - global_position).normalized() * 200
+		if body.has_method("apply_knockback"):
+			body.apply_knockback(knockback)
