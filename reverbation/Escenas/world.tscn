@@ -422,7 +422,6 @@ scale = Vector2(4, 4)
 
 [node name="Monkey" parent="Profundidades" instance=ExtResource("5_paeao")]
 position = Vector2(504, 119)
-max_health = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

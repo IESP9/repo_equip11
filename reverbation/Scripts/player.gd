@@ -93,11 +93,11 @@ func start_attack():
 	
 	match current_direction:
 		"derecha":
-			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
 			$AttackArea.global_position = global_position + Vector2(8, 0)
 		"izquierda":
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
 			$AttackArea.global_position = global_position + Vector2(-100, 0)
 		"arriba":
