@@ -12,6 +12,7 @@ var knockback_vector = Vector2.ZERO
 var knockback_strength = 0
 var knockback_recovery = 7  # Velocidad de recuperación del knockback
 var player_in_attack_area = false
+var attack_delay_timer: Timer
 
 func _ready():
 	$Attack/AttackArea.visible = false
@@ -19,6 +20,12 @@ func _ready():
 	self.y_sort_enabled = true  # Habilita YSort
 	add_to_group("enemigos")  # Añadir al grupo de enemigos
 	vida_actual = vida_max  # Inicializar vida
+	
+	attack_delay_timer = Timer.new()
+	attack_delay_timer.one_shot = true
+	attack_delay_timer.wait_time = 0.3  # 0.2 segundos de retraso
+	attack_delay_timer.timeout.connect(self._on_attack_delay_timer_timeout)
+	add_child(attack_delay_timer)
 
 func _physics_process(delta: float) -> void:
 	# Ataque cooldown
@@ -105,8 +112,8 @@ func start_attack(_body: Node2D) -> void:
 		var animation = $AnimatedSprite2D
 		is_attacking = true
 		attack_timer = attack_cooldown
-		$Attack/AttackArea.visible = true
-		$Attack/AttackArea.monitoring = true
+		$Attack/AttackArea.visible = false
+		$Attack/AttackArea.monitoring = false
 		
 		match current_direction:
 			"derecha":
@@ -134,7 +141,13 @@ func start_attack(_body: Node2D) -> void:
 	elif player_in_attack_area == false and is_attacking == true:
 		is_attacking = false
 		return
-		
+	
+	attack_delay_timer.start()
+
+func _on_attack_delay_timer_timeout():
+	if is_attacking:  # Solo activar si todavía está atacando
+		$Attack/AttackArea.visible = true
+		$Attack/AttackArea.monitoring = true
 
 func _on_attack_animation_finished():
 	# Esta función se llama cuando termina cualquier animación
@@ -179,7 +192,7 @@ func update_barra_vida():
 
 func apply_knockback(knockback: Vector2) -> void:
 	knockback_vector = knockback.normalized()
-	knockback_strength = 200  # Fuerza del knockback
+	knockback_strength = 250  # Fuerza del knockback
 	
 	# Puedes añadir aquí lógica de daño o efectos visuales
 	print("Enemigo recibió knockback!")
