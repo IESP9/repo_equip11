@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
 
-@export var speed = 400
-@export var sprint_speed = 550  # Velocidad al correr
+@export var speed = 350
+@export var sprint_speed = 500  # Velocidad al correr
 
 @export var max_health = 100
 var current_health = max_health
 var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
-var attack_timer = 0.0
+var attack_timer = 2
 var knockback_vector = Vector2.ZERO
 var knockback_strength = 0
 var knockback_recovery = 10  # Velocidad de recuperación del knockback
