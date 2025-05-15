@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0xwkkas3nktr"]
+[gd_scene load_steps=6 format=3 uid="uid://c28ph8vrtq3lr"]
 
 [ext_resource type="Script" path="res://Scripts/menu_pausa.gd" id="1_vv1s6"]
 [ext_resource type="StyleBox" uid="uid://hwejo0a1xhm3" path="res://Styles/Button_sobre.tres" id="2_55u2y"]
