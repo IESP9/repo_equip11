@@ -9,7 +9,6 @@ func toggle_pause() -> void:
 	get_tree().paused = not get_tree().paused
 	$ColorRect.visible = not $ColorRect.visible
 	$VBoxContainer/Continue.visible = not $VBoxContainer/Continue.visible
-	$VBoxContainer/Settings.visible = not $VBoxContainer/Settings.visible
 	$VBoxContainer/Exit.visible = not $VBoxContainer/Exit.visible
 	$Label.visible = not $Label.visible
 

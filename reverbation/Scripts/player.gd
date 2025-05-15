@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
 @onready var point_light_2d: PointLight2D = $PointLight2D
-@export var speed = 400
-@export var sprint_speed = 550  # Velocidad al correr
+@export var speed = 350
+@export var sprint_speed = 500  # Velocidad al correr
+
+
+@onready var sprite_corazon_2: AnimatedSprite2D = $sprite_corazon2
+
 @export var max_health = 100
 @onready var cooldown: Timer = $cooldown
 @onready var hab1_time: Timer = $hability1_time
@@ -13,10 +17,16 @@ var current_health = max_health
 var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
-var attack_timer = 0.0
+
 var estado = "off"
 var cooldown_value = 10
 var label_value = cooldown_value - 1
+
+var attack_timer = 1.5
+var knockback_vector = Vector2.ZERO
+var knockback_strength = 0
+var knockback_recovery = 10  # Velocidad de recuperación del knockback
+var attack_delay_timer: Timer
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -29,7 +39,17 @@ func _ready():
 	cooldown.wait_time = 1
 	cooldown.one_shot = false
 	cooldown.start()
+
+	attack_delay_timer = Timer.new()
 	
+	attack_delay_timer.one_shot = true
+
+	attack_delay_timer.wait_time = 0.3  # 0.2 segundos de retraso
+
+	attack_delay_timer.timeout.connect(self._on_attack_delay_timer_timeout)
+
+	add_child(attack_delay_timer)
+
 
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
@@ -61,6 +81,10 @@ func get_input():
 	play_animation(is_moving, is_sprinting)
 
 func play_animation(movement, is_sprinting):
+	# No cambiar animación si está atacando o en knockback
+	if is_attacking or knockback_strength > 0:
+		return
+		
 	var animation = $AnimatedSprite2D
 	
 	if current_direction == "derecha":
@@ -89,6 +113,16 @@ func play_animation(movement, is_sprinting):
 			animation.play("back_walk" if movement == 1 else "back_idle")
 
 func _physics_process(delta):
+	# Procesar knockback
+	if knockback_strength > 0:
+		velocity = knockback_vector * knockback_strength
+		knockback_strength = max(0, knockback_strength - knockback_recovery)
+		
+		# Si aún estamos en knockback, aplicar movimiento y salir
+		if knockback_strength > 0:
+			move_and_slide()
+			return
+	
 	if is_attacking:
 		velocity = Vector2.ZERO
 	else:
@@ -115,28 +149,37 @@ func _physics_process(delta):
 func start_attack():
 	is_attacking = true
 	attack_timer = attack_cooldown
-	$AttackArea.visible = true
-	$AttackArea.monitoring = true
+	$AttackArea.visible = false
+	$AttackArea.monitoring = false
 	
 	match current_direction:
 		"derecha":
-			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("side_attack")
 			$AttackArea.global_position = global_position + Vector2(8, 0)
 		"izquierda":
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("side_attack")
 			$AttackArea.global_position = global_position + Vector2(-100, 0)
 		"arriba":
 			$AnimatedSprite2D.play("back_attack")
-			$AttackArea.global_position = global_position + Vector2(-45, -30)
+			$AttackArea.global_position = global_position + Vector2(-45, -50)
 		"abajo":
 			$AnimatedSprite2D.play("front_attack")
-			$AttackArea.global_position = global_position + Vector2(-45, 40)
+			$AttackArea.global_position = global_position + Vector2(-45, 50)
 	
 	# Conectar la señal si no está conectada ya
 	if not $AnimatedSprite2D.animation_finished.is_connected(self._on_attack_animation_finished):
 		$AnimatedSprite2D.animation_finished.connect(self._on_attack_animation_finished)
+	# Iniciar el timer de retraso para activar el área de ataque
+	attack_delay_timer.start()
+
+# Esta función se llama cuando el timer de retraso termina
+func _on_attack_delay_timer_timeout():
+	if is_attacking:  # Solo activar si todavía está atacando
+		$AttackArea.visible = true
+		$AttackArea.monitoring = true
+		print("Área de ataque activada después del retraso")
 
 func _on_attack_animation_finished():
 	# Esta función se llama cuando termina cualquier animación
@@ -147,17 +190,42 @@ func _on_attack_animation_finished():
 		print("Animación de ataque terminada")
 
 func die():
+	print("Jugador ha muerto!")
 	queue_free()
 
 func take_damage(amount):
 	current_health -= amount
+	print("Jugador recibió " + str(amount) + " de daño. Salud: " + str(current_health))
+	$AnimatedSprite2D.play("damage")
+	
+	if current_health == 100:
+		sprite_corazon_2.play("vida_5")
+	elif current_health == 80:
+		sprite_corazon_2.play("vida_4")
+	elif current_health == 60:
+		sprite_corazon_2.play("vida_3")
+	elif current_health == 40:
+		sprite_corazon_2.play("vida_2")
+	elif current_health == 20:
+		sprite_corazon_2.play("vida_1")
+	elif current_health < 20:
+		sprite_corazon_2.play("vida_0")
+		
 	if current_health <= 0:
-		print("has muetro")
+		print("Jugador ha muerto")
 		die()
+		get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn")
 
-func _on_AttackArea_body_entered(body):
+func apply_knockback(knockback: Vector2) -> void:
+	knockback_vector = knockback.normalized()
+	knockback_strength = 250  # Fuerza del knockback para el jugador
+	print("Jugador recibió knockback!")
+
+# Conectar esta señal en el editor, o usar el formato correcto para la conexión automática
+func _on_attack_area_body_entered(body):
 	if body.is_in_group("enemigos"):
-		body.take_damage(20)  # Daño que hace el jugador
+		print("Golpeando a un enemigo")
+		body.take_damage(40)  # Daño que hace el jugador
 		var knockback = (body.global_position - global_position).normalized() * 200
 		if body.has_method("apply_knockback"):
 			body.apply_knockback(knockback)

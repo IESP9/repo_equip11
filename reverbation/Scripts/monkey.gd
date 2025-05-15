@@ -12,12 +12,20 @@ var knockback_vector = Vector2.ZERO
 var knockback_strength = 0
 var knockback_recovery = 7  # Velocidad de recuperación del knockback
 var player_in_attack_area = false
+var attack_delay_timer: Timer
 
 func _ready():
 	$Attack/AttackArea.visible = false
 	$Attack/AttackArea.monitoring = false
 	self.y_sort_enabled = true  # Habilita YSort
 	add_to_group("enemigos")  # Añadir al grupo de enemigos
+	vida_actual = vida_max  # Inicializar vida
+	
+	attack_delay_timer = Timer.new()
+	attack_delay_timer.one_shot = true
+	attack_delay_timer.wait_time = 0.3  # 0.2 segundos de retraso
+	attack_delay_timer.timeout.connect(self._on_attack_delay_timer_timeout)
+	add_child(attack_delay_timer)
 
 func _physics_process(delta: float) -> void:
 	# Ataque cooldown
@@ -104,8 +112,8 @@ func start_attack(_body: Node2D) -> void:
 		var animation = $AnimatedSprite2D
 		is_attacking = true
 		attack_timer = attack_cooldown
-		$Attack/AttackArea.visible = true
-		$Attack/AttackArea.monitoring = true
+		$Attack/AttackArea.visible = false
+		$Attack/AttackArea.monitoring = false
 		
 		match current_direction:
 			"derecha":
@@ -127,13 +135,19 @@ func start_attack(_body: Node2D) -> void:
 				print("ataque abajo")
 				$Attack/AttackArea.global_position = global_position + Vector2(-45, 40)
 	
-	# Conectar la señal de animación terminada si no está conectada
+		# Conectar la señal de animación terminada si no está conectada
 		if not animation.animation_finished.is_connected(self._on_attack_animation_finished):
 			animation.animation_finished.connect(self._on_attack_animation_finished)
 	elif player_in_attack_area == false and is_attacking == true:
 		is_attacking = false
 		return
-		
+	
+	attack_delay_timer.start()
+
+func _on_attack_delay_timer_timeout():
+	if is_attacking:  # Solo activar si todavía está atacando
+		$Attack/AttackArea.visible = true
+		$Attack/AttackArea.monitoring = true
 
 func _on_attack_animation_finished():
 	# Esta función se llama cuando termina cualquier animación
@@ -152,7 +166,7 @@ func _on_attack_body_exited(body: Node2D) -> void:
 		player_in_attack_area = false
 		print("ha salido")
 		# Asegurarnos de que no esté atacando si el jugador sale del área
-			# No cancelamos el ataque actual, pero evitamos que inicie uno nuevo
+		# No cancelamos el ataque actual, pero evitamos que inicie uno nuevo
 
 func die():
 	queue_free()
@@ -166,26 +180,27 @@ var vida_actual = vida_max
 func take_damage(amount):
 	vida_actual -= amount
 	update_barra_vida()
+	$AnimatedSprite2D.play("damage")
 
 	if vida_actual <= 0:
 		print("enemigo muerto")
 		die()
 
 func update_barra_vida():
-	barra_vida.value = clamp(barra_vida, 0, vida_max)
+	# Corregido: La barra se actualiza con el valor de vida_actual
+	barra_vida.value = clampf(vida_actual, 0, vida_max)
+
 func apply_knockback(knockback: Vector2) -> void:
 	knockback_vector = knockback.normalized()
-	knockback_strength = 200  # Fuerza del knockback
+	knockback_strength = 250  # Fuerza del knockback
 	
 	# Puedes añadir aquí lógica de daño o efectos visuales
 	print("Enemigo recibió knockback!")
 
-
-# Esta función estaba mal ubicada en tu código y parecía ser del jugador, no del enemigo
-# Si necesitas esta función en el enemigo, puedes descomentar y ajustar
-#func _on_AttackArea_body_entered(body):
-#	if body.is_in_group("player"):
-#		body.take_damage(20)  # Daño que hace el enemigo al jugador
-#		var knockback = (body.global_position - global_position).normalized() * 200
-#		if body.has_method("apply_knockback"):
-#			body.apply_knockback(knockback)
+# Función para que el enemigo dañe al jugador cuando lo golpea
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(20)  # Daño que hace el enemigo al jugador
+		var knockback = (body.global_position - global_position).normalized() * 200
+		if body.has_method("apply_knockback"):
+			body.apply_knockback(knockback)

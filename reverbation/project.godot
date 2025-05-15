@@ -23,7 +23,10 @@ VidaGlobal="*res://Scripts/vida_global.gd"
 
 [display]
 
+window/size/viewport_width=1279
+window/size/viewport_height=720
 window/size/mode=2
+window/stretch/mode="viewport"
 
 [global_group]
 
@@ -127,4 +130,6 @@ habilidad1={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.37416, 0.154538, 0.252515, 1)
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
