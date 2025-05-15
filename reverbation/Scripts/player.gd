@@ -20,7 +20,7 @@ func _ready():
 	add_to_group("player")  # Mejor forma de añadir al grupo
 	$AttackArea.visible = false
 	$AttackArea.monitoring = false
-
+	
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	
