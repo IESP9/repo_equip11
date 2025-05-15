@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var speed = 350
 @export var sprint_speed = 500  # Velocidad al correr
+@onready var sprite_corazon_2: AnimatedSprite2D = $sprite_corazon2
+
 
 @export var max_health = 100
 var current_health = max_health
@@ -28,6 +30,7 @@ func _ready():
 	attack_delay_timer.timeout.connect(self._on_attack_delay_timer_timeout)
 	add_child(attack_delay_timer)
 	
+
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
 	
@@ -161,10 +164,25 @@ func die():
 func take_damage(amount):
 	current_health -= amount
 	print("Jugador recibió " + str(amount) + " de daño. Salud: " + str(current_health))
+	$AnimatedSprite2D.play("damage")
 	
+	if current_health == 100:
+		sprite_corazon_2.play("vida_5")
+	elif current_health == 80:
+		sprite_corazon_2.play("vida_4")
+	elif current_health == 60:
+		sprite_corazon_2.play("vida_3")
+	elif current_health == 40:
+		sprite_corazon_2.play("vida_2")
+	elif current_health == 20:
+		sprite_corazon_2.play("vida_1")
+	elif current_health < 20:
+		sprite_corazon_2.play("vida_0")
+		
 	if current_health <= 0:
 		print("Jugador ha muerto")
 		die()
+		get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn")
 
 func apply_knockback(knockback: Vector2) -> void:
 	knockback_vector = knockback.normalized()

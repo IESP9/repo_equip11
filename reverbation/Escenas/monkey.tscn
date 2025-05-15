@@ -1,9 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://fbdd5723xmpo"]
+[gd_scene load_steps=67 format=3 uid="uid://fbdd5723xmpo"]
 
 [ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_va2rq"]
 [ext_resource type="Texture2D" uid="uid://c2fqc3a55ndqo" path="res://Sprites/Enemies/MONO/Sword_attack_full.png" id="2_8v283"]
 [ext_resource type="Texture2D" uid="uid://umiqwjvexnsq" path="res://Sprites/Enemies/Sword_Idle/Sword_Idle_full.png" id="4_mso35"]
 [ext_resource type="Texture2D" uid="uid://qs53tvylagv" path="res://Sprites/Enemies/MONO/Sword_Walk_full.png" id="4_p2ci6"]
+[ext_resource type="Texture2D" uid="uid://cse0xmk78me0a" path="res://Sprites/Enemies/MONO/Monkey_idle_damage.png" id="5_30aos"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3h0x"]
 atlas = ExtResource("2_8v283")
@@ -196,6 +197,34 @@ region = Rect2(256, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2t43"]
 atlas = ExtResource("4_p2ci6")
 region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u12c"]
+atlas = ExtResource("5_30aos")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s64n5"]
+atlas = ExtResource("5_30aos")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65wn7"]
+atlas = ExtResource("5_30aos")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyd4c"]
+atlas = ExtResource("5_30aos")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbj1r"]
+atlas = ExtResource("5_30aos")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idx04"]
+atlas = ExtResource("5_30aos")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7o8f"]
+atlas = ExtResource("5_30aos")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xqe7h"]
 animations = [{
@@ -414,6 +443,32 @@ animations = [{
 "loop": true,
 "name": &"Walk_side",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u12c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s64n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65wn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyd4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbj1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idx04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7o8f")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlbis"]
@@ -438,7 +493,7 @@ script = ExtResource("1_va2rq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xqe7h")
-animation = &"Death_back"
+animation = &"damage"
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
