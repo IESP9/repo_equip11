@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://cu8pt5b8nlmox" path="res://Styles/Button_pulsat.tres" id="2_cvgxm"]
 [ext_resource type="StyleBox" uid="uid://dbhs4t0dai3a8" path="res://Styles/Button_normal.tres" id="2_uisq5"]
 [ext_resource type="Texture2D" uid="uid://bi3hfjgkfmg7n" path="res://Sprites/fondo.jpg" id="3_dgq7b"]
-[ext_resource type="Script" uid="uid://b68axa6ur5yb0" path="res://Scripts/menu_principal.gd" id="4_4fy27"]
+[ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="4_4fy27"]
 [ext_resource type="Texture2D" uid="uid://c22y70uewi6yu" path="res://Sprites/Gui/1.png" id="6_v7bg7"]
 [ext_resource type="Texture2D" uid="uid://c82uh6lvuk7sr" path="res://Sprites/Gui/2.png" id="7_f3wty"]
 

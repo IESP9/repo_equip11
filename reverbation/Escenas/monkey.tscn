@@ -1,6 +1,6 @@
 [gd_scene load_steps=59 format=3 uid="uid://fbdd5723xmpo"]
 
-[ext_resource type="Script" uid="uid://cvlgxrwuahoae" path="res://Scripts/monkey.gd" id="1_va2rq"]
+[ext_resource type="Script" path="res://Scripts/monkey.gd" id="1_va2rq"]
 [ext_resource type="Texture2D" uid="uid://c2fqc3a55ndqo" path="res://Sprites/Enemies/MONO/Sword_attack_full.png" id="2_8v283"]
 [ext_resource type="Texture2D" uid="uid://umiqwjvexnsq" path="res://Sprites/Enemies/Sword_Idle/Sword_Idle_full.png" id="4_mso35"]
 [ext_resource type="Texture2D" uid="uid://qs53tvylagv" path="res://Sprites/Enemies/MONO/Sword_Walk_full.png" id="4_p2ci6"]
@@ -421,10 +421,10 @@ radius = 437.005
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx508"]
 radius = 15.4351
-height = 59.4413
+height = 104.022
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jcdb7"]
-radius = 100.404
+radius = 56.0089
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0dsns"]
 radius = 40.1995
@@ -449,7 +449,7 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_vlbis")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 29)
+position = Vector2(-1, 9)
 scale = Vector2(0.647876, 0.538346)
 shape = SubResource("CapsuleShape2D_qx508")
 
@@ -459,7 +459,6 @@ avoidance_enabled = true
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="startAttack" type="CollisionShape2D" parent="Attack"]
-position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_jcdb7")
 
 [node name="AttackArea" type="Area2D" parent="Attack"]
@@ -482,3 +481,4 @@ texture_under = SubResource("CompressedTexture2D_132er")
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_exited" from="Attack" to="." method="_on_attack_body_exited"]
+[connection signal="body_entered" from="Attack/AttackArea" to="." method="_on_attack_area_body_entered"]
