@@ -9,10 +9,11 @@ var current_health = max_health
 var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
-var attack_timer = 2
+var attack_timer = 1.5
 var knockback_vector = Vector2.ZERO
 var knockback_strength = 0
 var knockback_recovery = 10  # Velocidad de recuperación del knockback
+var attack_delay_timer: Timer
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -20,6 +21,12 @@ func _ready():
 	add_to_group("player")  # Mejor forma de añadir al grupo
 	$AttackArea.visible = false
 	$AttackArea.monitoring = false
+	
+	attack_delay_timer = Timer.new()
+	attack_delay_timer.one_shot = true
+	attack_delay_timer.wait_time = 0.3  # 0.2 segundos de retraso
+	attack_delay_timer.timeout.connect(self._on_attack_delay_timer_timeout)
+	add_child(attack_delay_timer)
 	
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
@@ -107,8 +114,8 @@ func _physics_process(delta):
 func start_attack():
 	is_attacking = true
 	attack_timer = attack_cooldown
-	$AttackArea.visible = true
-	$AttackArea.monitoring = true
+	$AttackArea.visible = false
+	$AttackArea.monitoring = false
 	
 	match current_direction:
 		"derecha":
@@ -129,6 +136,15 @@ func start_attack():
 	# Conectar la señal si no está conectada ya
 	if not $AnimatedSprite2D.animation_finished.is_connected(self._on_attack_animation_finished):
 		$AnimatedSprite2D.animation_finished.connect(self._on_attack_animation_finished)
+	# Iniciar el timer de retraso para activar el área de ataque
+	attack_delay_timer.start()
+
+# Esta función se llama cuando el timer de retraso termina
+func _on_attack_delay_timer_timeout():
+	if is_attacking:  # Solo activar si todavía está atacando
+		$AttackArea.visible = true
+		$AttackArea.monitoring = true
+		print("Área de ataque activada después del retraso")
 
 func _on_attack_animation_finished():
 	# Esta función se llama cuando termina cualquier animación
