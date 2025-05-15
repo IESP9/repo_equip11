@@ -1,15 +1,22 @@
 extends CharacterBody2D
 
-
+@onready var point_light_2d: PointLight2D = $PointLight2D
 @export var speed = 400
 @export var sprint_speed = 550  # Velocidad al correr
-
 @export var max_health = 100
+@onready var cooldown: Timer = $cooldown
+@onready var hab1_time: Timer = $hability1_time
+@onready var hab1_label: Label = $Camera/hab1_time
+
+
 var current_health = max_health
 var current_direction = "none"
 var is_attacking = false
 var attack_cooldown = 1.5
 var attack_timer = 0.0
+var estado = "off"
+var cooldown_value = 10
+var label_value = cooldown_value - 1
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -17,6 +24,12 @@ func _ready():
 	add_to_group("player")  # Mejor forma de añadir al grupo
 	$AttackArea.visible = false
 	$AttackArea.monitoring = false
+	
+	#timer habilidad
+	cooldown.wait_time = 1
+	cooldown.one_shot = false
+	cooldown.start()
+	
 
 func get_input():
 	var input_direction = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
@@ -83,10 +96,22 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	
 	# Ataque cooldown
 	if attack_timer > 0:
-		attack_timer -= delta
+		attack_timer -= delta	
+	#Habilidad de Luz
+	if cooldown_value >= 11:
+		eco()
+	
+	label_value = cooldown_value - 1
 
+	if cooldown_value >= 11:
+		hab1_label.text = "Habilidad Lista"
+	else:
+		hab1_label.text = str(label_value)
+
+	
 func start_attack():
 	is_attacking = true
 	attack_timer = attack_cooldown
@@ -137,3 +162,25 @@ func _on_AttackArea_body_entered(body):
 		if body.has_method("apply_knockback"):
 			body.apply_knockback(knockback)
 			
+func eco():
+	if Input.is_action_just_pressed("habilidad1") and cooldown_value >= 11:
+		estado = "on"
+		print("Habilidad 1 activada")
+		while estado == "on":
+			point_light_2d.texture_scale = 5
+			hab1_time.start()
+			hab1_time.wait_time = 3.5
+			hab1_time.one_shot = true
+			cooldown.stop()
+			estado = "off"
+
+
+func _on_hability_1_time_timeout() -> void:
+	point_light_2d.texture_scale = 1
+	cooldown_value = 1  # Reiniciamos cooldown
+	#hab1_label.text = str(cooldown_value)
+	cooldown.start()  # Replace with function body.
+
+func _on_cooldown_timeout() -> void:
+	if cooldown_value > 0:
+		cooldown_value = cooldown_value + 1

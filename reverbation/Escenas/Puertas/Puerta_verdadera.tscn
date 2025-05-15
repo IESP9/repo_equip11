@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1huwk8mircdd"]
+
+[ext_resource type="Texture2D" uid="uid://c3s8gyt0jscyl" path="res://Sprites/SPRITES MAP/puerta.png" id="1_k54bh"]
+[ext_resource type="Script" path="res://Scripts/scripts_puertas/puerta_verdadera.gd" id="2_mme33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dfhu"]
+atlas = ExtResource("1_k54bh")
+region = Rect2(15, 3, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmb3g"]
+atlas = ExtResource("1_k54bh")
+region = Rect2(1, 3, 15, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjeu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"abierta",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dfhu")
+}],
+"loop": false,
+"name": &"horizontal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmb3g")
+}],
+"loop": false,
+"name": &"vertical",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj6ki"]
+size = Vector2(8.66667, 1.66667)
+
+[node name="puerta1" type="AnimatedSprite2D"]
+z_index = 3
+position = Vector2(3, 4)
+scale = Vector2(1.57143, 1.5)
+sprite_frames = SubResource("SpriteFrames_yjeu8")
+animation = &"abierta"
+script = ExtResource("2_mme33")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 1.16667)
+
+[node name="colision_puerta1" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.333333)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vj6ki")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

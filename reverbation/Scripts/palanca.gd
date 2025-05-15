@@ -24,7 +24,8 @@ func _on_body_entered(body):
 		print("Presiona la tecla E.")
 		labeltexto.visible = true
 		texto.visible = true
-		
+		var palanca_puerta1 = false
+
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_near = false  # El jugador sale de la zona
@@ -39,12 +40,12 @@ func toggle_lever():
 		print("Palanca activada.")
 		if animated_sprite.animation == "desactivada":
 			animated_sprite.play("on")
-			palanca_global.palanca_puerta = true
+			palanca_global.palanca_puerta1 = true
 	else:
 		print("Palanca desactivada.")
 		if animated_sprite.animation == "on":
 			animated_sprite.play("desactivada")
-			palanca_global.palanca_puerta = false
+			palanca_global.palanca_puerta1 = false
 			
 func _process(_delta):
 	if player_near and Input.is_action_just_pressed("ui_accept"):

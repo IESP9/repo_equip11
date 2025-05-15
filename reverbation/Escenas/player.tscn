@@ -825,4 +825,10 @@ monitoring = false
 position = Vector2(67.1429, 14.2857)
 shape = SubResource("CircleShape2D_cwbys")
 
+[node name="cooldown" type="Timer" parent="."]
+
+[node name="hability1_time" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="hability1_time" to="." method="_on_hability_1_time_timeout"]
