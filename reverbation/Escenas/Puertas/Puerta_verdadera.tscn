@@ -54,7 +54,6 @@ position = Vector2(0, 1.16667)
 
 [node name="colision_puerta1" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 0.333333)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vj6ki")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
