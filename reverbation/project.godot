@@ -23,7 +23,10 @@ VidaGlobal="*res://Scripts/vida_global.gd"
 
 [display]
 
+window/size/viewport_width=1279
+window/size/viewport_height=720
 window/size/mode=2
+window/stretch/mode="viewport"
 
 [global_group]
 
