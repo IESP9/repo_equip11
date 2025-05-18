@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ovlv5ov3630a"]
+[gd_scene load_steps=29 format=4 uid="uid://ovlv5ov3630a"]
 
 [ext_resource type="PackedScene" uid="uid://bmbm0oi3wismc" path="res://Escenas/health_bar.tscn" id="1_0fueb"]
 [ext_resource type="AudioStream" uid="uid://c7rtd2c7m6gv0" path="res://Musica/Banda Sonora Reverbation.mp3" id="1_3jfog"]
@@ -12,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://bfftlqk2fmdtj" path="res://Sprites/light.png" id="6_knasx"]
 [ext_resource type="Texture2D" uid="uid://bu8v332tax26g" path="res://Sprites/SPRITES MAP/tilesWallsColoredByJoram.png" id="6_yxtox"]
 [ext_resource type="PackedScene" uid="uid://b1huwk8mircdd" path="res://Escenas/Puertas/Puerta_verdadera.tscn" id="10_17vw3"]
+[ext_resource type="PackedScene" uid="uid://1t0bgsob2nt5" path="res://Escenas/Puertas/Puerta_verdadera2.tscn" id="13_0o51q"]
+[ext_resource type="PackedScene" uid="uid://byw0qfkkhy08w" path="res://Escenas/palancas/palanca2.tscn" id="14_r621l"]
+[ext_resource type="PackedScene" uid="uid://de1aa8g42src" path="res://Escenas/palancas/palanca3.tscn" id="15_obpy2"]
+[ext_resource type="PackedScene" uid="uid://bfrr5qrsvxsje" path="res://Escenas/Puertas/Puerta_verdadera3.tscn" id="16_xov5n"]
+[ext_resource type="PackedScene" uid="uid://cq5n7581wsfnt" path="res://Escenas/Puertas/Puerta_verdadera4.tscn" id="17_ytqa5"]
+[ext_resource type="PackedScene" uid="uid://cpg1x0t4jgx85" path="res://Escenas/palancas/palanca4.1.tscn" id="18_ri8by"]
+[ext_resource type="PackedScene" uid="uid://b0bcd08dw2bhw" path="res://Escenas/palancas/palanca4.2.tscn" id="19_4kkiq"]
+[ext_resource type="PackedScene" uid="uid://cwjlawdgdpedl" path="res://Escenas/palancas/palanca4.3.tscn" id="20_qgrsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qc2ag"]
 texture = ExtResource("6_yxtox")
@@ -838,12 +846,12 @@ y_sort_enabled = true
 
 [node name="Capsula" parent="Profundidades" instance=ExtResource("6_gnd0b")]
 z_index = 2
-position = Vector2(429, 608)
+position = Vector2(436, 479)
 scale = Vector2(3.2, 3.2)
 
 [node name="Player" parent="Profundidades" groups=["player"] instance=ExtResource("1_20eoy")]
 z_index = 2
-position = Vector2(10, 5.00001)
+position = Vector2(2587, 5110)
 platform_floor_layers = 1
 
 [node name="Camera" type="Camera2D" parent="Profundidades/Player"]
@@ -873,36 +881,6 @@ scale = Vector2(1.177, 1.177)
 range_item_cull_mask = 3
 texture = ExtResource("6_knasx")
 
-[node name="Puertas" type="Node" parent="Profundidades/Player"]
-
-[node name="puerta2" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-860, 696)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta3" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-742, 516)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta4" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-968, 518)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta5" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-751, 435)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta6" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-969, 437)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta7" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-742, 603)
-scale = Vector2(16.4286, 18.4167)
-
-[node name="puerta8" parent="Profundidades/Player/Puertas" instance=ExtResource("10_17vw3")]
-position = Vector2(-981, 608)
-scale = Vector2(16.4286, 18.4167)
-
 [node name="Palanca" parent="Profundidades" instance=ExtResource("6_7i020")]
 z_index = 2
 position = Vector2(328, 18)
@@ -913,6 +891,7 @@ position = Vector2(-193, 833)
 scale = Vector2(16.4286, 18.4167)
 
 [node name="monos" type="Node2D" parent="Profundidades"]
+visible = false
 
 [node name="Monkey2" parent="Profundidades/monos" instance=ExtResource("5_paeao")]
 position = Vector2(-4537, 1854)
@@ -1292,6 +1271,61 @@ position = Vector2(-957, 1723)
 [node name="Monkey129" parent="Profundidades/monos" instance=ExtResource("5_paeao")]
 position = Vector2(2357, 4498)
 
+[node name="Capsula2" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(419, 711)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula3" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(109, 470)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula4" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(284, 616)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula5" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(-196, 197)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula6" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(477, 180)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula7" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(94, 733)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula8" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(321, 367)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula9" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(-252, 415)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula10" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(-184, -45)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula11" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(207, 96)
+scale = Vector2(3.2, 3.2)
+
+[node name="Capsula12" parent="Profundidades" instance=ExtResource("6_gnd0b")]
+z_index = 2
+position = Vector2(-34, 360)
+scale = Vector2(3.2, 3.2)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 light_mask = 3
@@ -1304,6 +1338,7 @@ navigation_polygon = SubResource("NavigationPolygon_10q1k")
 [node name="MENU" parent="." instance=ExtResource("1_d24c7")]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 49.0
 offset_top = -90.0
 offset_right = 473.0
@@ -1328,3 +1363,40 @@ ESCENARIO
 
 USAR LA TECLA (E) PARA INTERACTUAR CON LOS ELEMENTOS DEL ESCENARIO
 "
+
+[node name="puerta2" parent="." instance=ExtResource("13_0o51q")]
+position = Vector2(-1857, 2725)
+scale = Vector2(33, 20)
+
+[node name="Palanca2" parent="." instance=ExtResource("14_r621l")]
+z_index = 1
+position = Vector2(-4137, 2248)
+scale = Vector2(3.7, 3.7)
+
+[node name="puerta3" parent="." instance=ExtResource("16_xov5n")]
+position = Vector2(-4019, 6678)
+scale = Vector2(30.6667, 9.5)
+
+[node name="Palanca3" parent="." instance=ExtResource("15_obpy2")]
+z_index = 1
+position = Vector2(-3696, 8374)
+scale = Vector2(3.7, 3.7)
+
+[node name="puerta1" parent="." instance=ExtResource("17_ytqa5")]
+position = Vector2(2435, 7292.93)
+scale = Vector2(32.7857, 29.9887)
+
+[node name="Palanca41" parent="." instance=ExtResource("18_ri8by")]
+z_index = 1
+position = Vector2(-1723, 7924)
+scale = Vector2(3.7, 3.7)
+
+[node name="Palanca42" parent="." instance=ExtResource("19_4kkiq")]
+z_index = 1
+position = Vector2(698, 3227)
+scale = Vector2(3.7, 3.7)
+
+[node name="Palanca43" parent="." instance=ExtResource("20_qgrsu")]
+z_index = 1
+position = Vector2(-2106, 4913)
+scale = Vector2(3.7, 3.7)

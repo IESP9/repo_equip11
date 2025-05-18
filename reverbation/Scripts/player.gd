@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 @onready var sprite_corazon_2: AnimatedSprite2D = $sprite_corazon2
 
-@export var max_health = 100
+@export var max_health = 1000000
 @onready var cooldown: Timer = $cooldown
 @onready var hab1_time: Timer = $hability1_time
 @onready var hab1_label: Label = $Camera/hab1_time
