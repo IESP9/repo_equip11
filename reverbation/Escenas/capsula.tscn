@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bexci80ajxxcn"]
+
+[ext_resource type="Texture2D" uid="uid://j2c0idnbb288" path="res://Sprites/SPRITES MAP/TilesStuffByJoram.png" id="1_hbixr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv5qm"]
+atlas = ExtResource("1_hbixr")
+region = Rect2(480, 112, 48, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_381w6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv5qm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb1pb"]
+height = 26.0
+
+[node name="Capsula" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, -17)
+sprite_frames = SubResource("SpriteFrames_381w6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, -3)
+shape = SubResource("CapsuleShape2D_gb1pb")
+one_way_collision_margin = 0.0
