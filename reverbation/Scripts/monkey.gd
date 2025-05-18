@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var attack_area: Area2D = $Attack/AttackArea
 
-var speed = 100
+var speed = 300
 var player_chase = false
 var player = null
 var current_direction = "none"
